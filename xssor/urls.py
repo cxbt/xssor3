@@ -13,21 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.urls import re_path
 from django.contrib import admin
 from xssor.index.views import index, cmd_create, cmd, \
                             probe_create, probe_js, probe_txt, probe_status
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    url(r'^adminofwhatidonotcare/', admin.site.urls),
-    url(r'^$', index),
-    url(r'^favicon.ico$', RedirectView.as_view(url=r'/s/favicon.ico')),
-    url(r'^cmd/create/?$', cmd_create),
-    url(r'^cmd/?$', cmd),
-    url(r'^probe/create/?$', probe_create),
-    url(r'^probe/(?P<pid>\w+).js/?$', probe_js),
-    url(r'^probe/(?P<pid>\w+).txt/?$', probe_txt),
-    url(r'^probe/status/?$', probe_status),
+    re_path(r'^adminofwhatidonotcare/', admin.site.urls),
+    re_path(r'^$', index),
+    re_path(r'^favicon.ico$', RedirectView.as_view(url='/s/favicon.ico')),
+    re_path(r'^cmd/create/?$', cmd_create),
+    re_path(r'^cmd/?$', cmd),
+    re_path(r'^probe/create/?$', probe_create),
+    re_path(r'^probe/(?P<pid>\w+).js/?$', probe_js),
+    re_path(r'^probe/(?P<pid>\w+).txt/?$', probe_txt),
+    re_path(r'^probe/status/?$', probe_status),
 ]
 
